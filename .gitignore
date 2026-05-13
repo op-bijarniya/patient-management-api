@@ -1,0 +1,49 @@
+# =========================
+# .NET / ASP.NET Core
+# =========================
+bin/
+obj/
+
+# Rider / VS Code / Visual Studio
+.vs/
+.vscode/
+.idea/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Environment variables / secrets
+# =========================
+.env
+appsettings.Development.json
+appsettings.Local.json
+
+# =========================
+# EF Core
+# =========================
+**/Migrations/*.csproj.user
+
+# =========================
+# OS-generated files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Publishing output
+# =========================
+publish/
