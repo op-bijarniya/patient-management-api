@@ -29,6 +29,14 @@ public class PatientRepository : IPatientRepository
             .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
     }
 
+    public async Task<IReadOnlyCollection<Patient>> GetAllAsync(CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Patients
+            .OrderBy(p => p.LastName)
+            .ThenBy(p => p.FirstName)
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<IReadOnlyCollection<Patient>> SearchAsync(string? searchText, CancellationToken cancellationToken = default)
     {
         var query = _dbContext.Patients.AsQueryable();

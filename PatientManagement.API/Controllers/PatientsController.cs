@@ -47,6 +47,13 @@ public class PatientsController : ControllerBase
         }
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetPatients()
+    {
+        var result = await _patientService.GetAllPatientsAsync();
+        return Ok(result);
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetPatient(int id)
     {

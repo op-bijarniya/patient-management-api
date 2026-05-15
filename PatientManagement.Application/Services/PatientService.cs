@@ -50,6 +50,12 @@ public class PatientService : IPatientService
         return patient == null ? null : _mapper.Map<PatientDto>(patient);
     }
 
+    public async Task<IReadOnlyCollection<PatientDto>> GetAllPatientsAsync(CancellationToken cancellationToken = default)
+    {
+        var patients = await _patientRepository.GetAllAsync(cancellationToken);
+        return _mapper.Map<IReadOnlyCollection<PatientDto>>(patients);
+    }
+
     public async Task<IReadOnlyCollection<PatientDto>> SearchPatientsAsync(string? searchText, CancellationToken cancellationToken = default)
     {
         var patients = await _patientRepository.SearchAsync(searchText, cancellationToken);
